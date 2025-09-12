@@ -10,16 +10,16 @@ dns:
     - https://1.1.1.1/dns-query # DNS over HTTPS
 
 proxy-groups:
-  - name: "♻️ Auto"
+  - name: "自动选择"
     type: fallback
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
       - 美国自建节点
       - 日本自建节点
-      - Naiixi机场美国
+      - 第三方机场(Naixxi)美国
 
-  - name: "🚀 Select"
+  - name: "手动选择"
     type: select
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -37,7 +37,7 @@ proxy-groups:
     proxies:
       - 美国AI自建节点
       - 日本AI自建节点
-      - Naiixi机场美国
+      - 第三方机场(Naixxi)美国
 
 
   - name: "流媒体"
@@ -45,9 +45,9 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
-      - Naiixi机场新加坡
-      - Naiixi机场日本
-      - Naiixi机场美国
+      - 第三方机场(Naixxi)新加坡
+      - 第三方机场(Naixxi)日本
+      - 第三方机场(Naixxi)美国
 
 
   - name: "美国自建节点"
@@ -80,14 +80,14 @@ proxy-groups:
     use:
       - SubPolicy_AIProxy_JP
 
-  - name: "Naiixi机场"
+  - name: "第三方机场(Naixxi)"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
       - Airport
 
-  - name: "Naiixi机场香港"
+  - name: "第三方机场(Naixxi)香港"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -95,7 +95,7 @@ proxy-groups:
     use:
       - Airport
 
-  - name: "Naiixi机场美国"
+  - name: "第三方机场(Naixxi)美国"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -103,7 +103,7 @@ proxy-groups:
     use:
       - Airport
 
-  - name: "Naiixi机场日本"
+  - name: "第三方机场(Naixxi)日本"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -111,7 +111,7 @@ proxy-groups:
     use:
       - Airport
 
-  - name: "Naiixi机场新加坡"
+  - name: "第三方机场(Naixxi)新加坡"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -280,14 +280,14 @@ rule-providers:
     interval: 86400
 
 rules:
-  - DOMAIN-SUFFIX,nikkei.cn,♻️ Auto
+  - DOMAIN-SUFFIX,nikkei.cn,自动选择
   - DOMAIN-SUFFIX,longbridge.global,DIRECT
   - DOMAIN-SUFFIX,ibkr.com,DIRECT
   - DOMAIN-SUFFIX,bochk.com,DIRECT
-  - DOMAIN-SUFFIX,kaggle.com,Naiixi机场美国
-  - DOMAIN-SUFFIX,kaggleusercontent.com,Naiixi机场美国
+  - DOMAIN-SUFFIX,kaggle.com,第三方机场(Naixxi)美国
+  - DOMAIN-SUFFIX,kaggleusercontent.com,第三方机场(Naixxi)美国
   - DOMAIN-SUFFIX,cdn.kineticbloom.org,DIRECT
-  - DOMAIN-SUFFIX,buyee.jp,Naiixi机场日本
+  - DOMAIN-SUFFIX,buyee.jp,第三方机场(Naixxi)日本
   - RULE-SET,local-area-network,DIRECT
   - RULE-SET,wechat,DIRECT
   - RULE-SET,apple,DIRECT
@@ -297,13 +297,13 @@ rules:
   - RULE-SET,claude,AI节点
   - RULE-SET,gemini,AI节点
   - RULE-SET,netflix,流媒体
-  - RULE-SET,telegram,♻️ Auto
-  - RULE-SET,twitter,♻️ Auto
-  - RULE-SET,discord,♻️ Auto
-  - RULE-SET,google,♻️ Auto
-  - RULE-SET,cloudflare,♻️ Auto
+  - RULE-SET,telegram,自动选择
+  - RULE-SET,twitter,自动选择
+  - RULE-SET,discord,自动选择
+  - RULE-SET,google,自动选择
+  - RULE-SET,cloudflare,自动选择
   - RULE-SET,direct,DIRECT
   - RULE-SET,binance,DIRECT
   - RULE-SET,global-media,流媒体
   - GEOIP,CN,DIRECT
-  - MATCH,♻️ Auto
+  - MATCH,自动选择
