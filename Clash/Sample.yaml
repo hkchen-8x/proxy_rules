@@ -15,9 +15,9 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
-      - ♻️ SubPolicy_Auto_US
-      - ♻️ SubPolicy_Auto_JP
-      - 🇺🇸 Airport_US
+      - 美国自建节点
+      - 日本自建节点
+      - Naiixi机场美国
 
   - name: "🚀 Select"
     type: select
@@ -30,27 +30,27 @@ proxy-groups:
 
 
 
-  - name: "🤖 AIProxy"
+  - name: "AI节点"
     type: fallback
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
-      - 🤖 SubPolicy_AIProxy_US
-      - 🤖 SubPolicy_AIProxy_JP
-      - 🇺🇸 Airport_US
+      - 美国AI自建节点
+      - 日本AI自建节点
+      - Naiixi机场美国
 
 
-  - name: "🎥 GlobalMedia"
+  - name: "流媒体"
     type: fallback
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
-      - 🇸🇬 Airport_SG
-      - 🇯🇵 Airport_JP
-      - 🇺🇸 Airport_US
+      - Naiixi机场新加坡
+      - Naiixi机场日本
+      - Naiixi机场美国
 
 
-  - name: "♻️ SubPolicy_Auto_US"
+  - name: "美国自建节点"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -58,7 +58,7 @@ proxy-groups:
       - SubPolicy_Auto_US
 
 
-  - name: "♻️ SubPolicy_Auto_JP"
+  - name: "日本自建节点"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -66,28 +66,28 @@ proxy-groups:
       - SubPolicy_Auto_JP
 
 
-  - name: "🤖 SubPolicy_AIProxy_US"
+  - name: "美国AI自建节点"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
       - SubPolicy_AIProxy_US
 
-  - name: "🤖 SubPolicy_AIProxy_JP"
+  - name: "日本AI自建节点"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
       - SubPolicy_AIProxy_JP
 
-  - name: "✈️ Airport"
+  - name: "Naiixi机场"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
       - Airport
 
-  - name: "🇭🇰 Airport_HK"
+  - name: "Naiixi机场香港"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -95,7 +95,7 @@ proxy-groups:
     use:
       - Airport
 
-  - name: "🇺🇸 Airport_US"
+  - name: "Naiixi机场美国"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -103,7 +103,7 @@ proxy-groups:
     use:
       - Airport
 
-  - name: "🇯🇵 Airport_JP"
+  - name: "Naiixi机场日本"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -111,7 +111,7 @@ proxy-groups:
     use:
       - Airport
 
-  - name: "🇸🇬 Airport_SG"
+  - name: "Naiixi机场新加坡"
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -284,19 +284,19 @@ rules:
   - DOMAIN-SUFFIX,longbridge.global,DIRECT
   - DOMAIN-SUFFIX,ibkr.com,DIRECT
   - DOMAIN-SUFFIX,bochk.com,DIRECT
-  - DOMAIN-SUFFIX,kaggle.com,🇺🇸 Airport_US
-  - DOMAIN-SUFFIX,kaggleusercontent.com,🇺🇸 Airport_US
+  - DOMAIN-SUFFIX,kaggle.com,Naiixi机场美国
+  - DOMAIN-SUFFIX,kaggleusercontent.com,Naiixi机场美国
   - DOMAIN-SUFFIX,cdn.kineticbloom.org,DIRECT
-  - DOMAIN-SUFFIX,buyee.jp,🇯🇵 Airport_JP
+  - DOMAIN-SUFFIX,buyee.jp,Naiixi机场日本
   - RULE-SET,local-area-network,DIRECT
   - RULE-SET,wechat,DIRECT
   - RULE-SET,apple,DIRECT
-  - RULE-SET,openai,🤖 AIProxy
-  - RULE-SET,bing,🤖 AIProxy
-  - RULE-SET,copilot,🤖 AIProxy
-  - RULE-SET,claude,🤖 AIProxy
-  - RULE-SET,gemini,🤖 AIProxy
-  - RULE-SET,netflix,🎥 GlobalMedia
+  - RULE-SET,openai,AI节点
+  - RULE-SET,bing,AI节点
+  - RULE-SET,copilot,AI节点
+  - RULE-SET,claude,AI节点
+  - RULE-SET,gemini,AI节点
+  - RULE-SET,netflix,流媒体
   - RULE-SET,telegram,♻️ Auto
   - RULE-SET,twitter,♻️ Auto
   - RULE-SET,discord,♻️ Auto
@@ -304,6 +304,6 @@ rules:
   - RULE-SET,cloudflare,♻️ Auto
   - RULE-SET,direct,DIRECT
   - RULE-SET,binance,DIRECT
-  - RULE-SET,global-media,🎥 GlobalMedia
+  - RULE-SET,global-media,流媒体
   - GEOIP,CN,DIRECT
   - MATCH,♻️ Auto
