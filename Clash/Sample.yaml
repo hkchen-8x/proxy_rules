@@ -24,9 +24,8 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
-      - SubPolicy_Auto_US
-      - SubPolicy_Auto_JP
-      - Airport
+      - _自建节点
+      - _第三方机场
 
   - name: "流媒体"
     type: fallback
@@ -43,7 +42,8 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
-      - SubPolicy_Auto_US
+      - _自建节点
+    filter: '美国'
 
 
   - name: "日本自建节点"
@@ -51,7 +51,8 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
-      - SubPolicy_Auto_JP
+      - _自建节点
+    filter: '日本'
 
 
   - name: "第三方机场(Naixxi)"
@@ -59,7 +60,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use:
-      - Airport
+      - _第三方机场
 
   - name: "第三方机场(Naixxi)香港"
     type: url-test
@@ -67,7 +68,7 @@ proxy-groups:
     interval: 300
     filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
     use:
-      - Airport
+      - _第三方机场
 
   - name: "第三方机场(Naixxi)美国"
     type: url-test
@@ -75,7 +76,7 @@ proxy-groups:
     interval: 300
     filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
     use:
-      - Airport
+      - _第三方机场
 
   - name: "第三方机场(Naixxi)日本"
     type: url-test
@@ -83,7 +84,7 @@ proxy-groups:
     interval: 300
     filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
     use:
-      - Airport
+      - _第三方机场
 
   - name: "第三方机场(Naixxi)新加坡"
     type: url-test
@@ -91,12 +92,12 @@ proxy-groups:
     interval: 300
     filter: '新加坡|坡|狮城|SG|Singapore'
     use:
-      - Airport
+      - _第三方机场
 
 proxy-providers:
-  Airport:
+  _第三方机场:
     type: http
-    url: "$api/Airport"
+    url: "https://goandrun-1252385391.cos.ap-guangzhou.myqcloud.com/proxy/Nexitally_Clash_filtered.yml?sign=q-sign-algorithm%3Dsha1%26q-ak%3DAKIDgz87uVs30lJelgPuFQCnBNN9i4DAuQjp%26q-sign-time%3D1757783407%3B1767783467%26q-key-time%3D1757783407%3B1767783467%26q-header-list%3Dhost%26q-url-param-list%3D%26q-signature%3D50a63fa315ce3bfc22b2bf80955051ee46d70f06"
     interval: 300
     path: ./proxy/airport.yaml
     health-check:
@@ -105,27 +106,17 @@ proxy-providers:
       interval: 300
       url: http://www.gstatic.com/generate_204
 
-  SubPolicy_Auto_US:
+  _自建节点:
     type: http
-    url: "$api/SubPolicy_Auto_US"
+    url: "$api/"
     interval: 300
-    path: ./proxy/sub_policy-auto-us.yaml
+    path: ./proxy/sub_policy-auto.yaml
     health-check:
       enable: true
       interval: 300
       lazy: true
       url: http://www.gstatic.com/generate_204
 
-  SubPolicy_Auto_JP:
-    type: http
-    url: "$api/SubPolicy_Auto_JP"
-    interval: 300
-    path: ./proxy/sub_policy-auto-jp.yaml
-    health-check:
-      enable: true
-      interval: 300
-      lazy: true
-      url: http://www.gstatic.com/generate_204
 
 rule-providers:
   local-area-network:
