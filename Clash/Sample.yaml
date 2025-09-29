@@ -230,7 +230,7 @@ rules:
   - DOMAIN-SUFFIX,kaggle.com,第三方机场(Naixxi)美国
   - DOMAIN-SUFFIX,kaggleusercontent.com,第三方机场(Naixxi)美国
   - DOMAIN-SUFFIX,cdn.kineticbloom.org,DIRECT
-  - DOMAIN-SUFFIX,buyee.jp,第三方机场(Naixxi)日本
+  - DOMAIN-SUFFIX,buyee.jp,日本自建节点
   - RULE-SET,local-area-network,DIRECT
   - RULE-SET,wechat,DIRECT
   - RULE-SET,apple,DIRECT
