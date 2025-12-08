@@ -239,6 +239,7 @@ rules:
   - RULE-SET,twitter,自动选择
   - RULE-SET,discord,自动选择
   - RULE-SET,google,自动选择
+  - RULE-SET,gemini,自动选择
   - RULE-SET,cloudflare,自动选择
   - RULE-SET,direct,DIRECT
   - RULE-SET,binance,DIRECT
