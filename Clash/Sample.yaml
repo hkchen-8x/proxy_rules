@@ -295,12 +295,12 @@ rules:
   - RULE-SET,bing,🤖 AIProxy
   - RULE-SET,copilot,🤖 AIProxy
   - RULE-SET,claude,🤖 AIProxy
-  - RULE-SET,gemini,🤖 AIProxy
   - RULE-SET,netflix,🎥 GlobalMedia
   - RULE-SET,telegram,♻️ Auto
   - RULE-SET,twitter,♻️ Auto
   - RULE-SET,discord,♻️ Auto
   - RULE-SET,google,♻️ Auto
+  - RULE-SET,gemini,♻️ Auto
   - RULE-SET,cloudflare,♻️ Auto
   - RULE-SET,direct,DIRECT
   - RULE-SET,binance,DIRECT
