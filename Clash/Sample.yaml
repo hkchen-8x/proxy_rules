@@ -23,9 +23,19 @@ proxy-groups:
     type: select
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    proxies:
+      - 电商策略组
     use:
       - _自建节点
       - _第三方机场
+
+  - name: "电商策略组"
+    type: select
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    use:
+      - _自建节点
+    filter: '电商'
 
   - name: "流媒体"
     type: fallback
