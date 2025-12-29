@@ -15,7 +15,10 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
+      - 美国住宅
       - 美国自建节点
+      - 亚洲住宅
+      - 美国住宅
       - 日本自建节点
       - 第三方机场(Naixxi)美国
 
@@ -23,9 +26,26 @@ proxy-groups:
     type: select
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    proxies:
+      - 亚洲住宅
+      - 美国住宅
     use:
       - _自建节点
       - _第三方机场
+
+  - name: "亚洲住宅"
+    type: fallback
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    use:
+      - _亚洲住宅
+
+  - name: "美国住宅"
+    type: fallback
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    use:
+      - _美国住宅
 
   - name: "流媒体"
     type: fallback
@@ -111,6 +131,28 @@ proxy-providers:
     url: "$api/"
     interval: 300
     path: ./proxy/sub_policy-auto.yaml
+    health-check:
+      enable: true
+      interval: 300
+      lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  _亚洲住宅:
+    type: http
+    url: "$api/SubPolicy_Residential_Asia"
+    interval: 300
+    path: ./proxy/residential_asia.yaml
+    health-check:
+      enable: true
+      interval: 300
+      lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  _美国住宅:
+    type: http
+    url: "$api/SubPolicy_Residential_US"
+    interval: 300
+    path: ./proxy/residential_us.yaml
     health-check:
       enable: true
       interval: 300
