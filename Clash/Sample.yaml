@@ -15,36 +15,60 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
-      - 美国住宅
-      - 美国自建节点
-      - 亚洲住宅
-      - 日本自建节点
-      - 第三方机场(Naixxi)美国
+      - 美国住宅-master
+      - 美国住宅-back
+
 
   - name: "手动选择"
     type: select
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     proxies:
-      - 亚洲住宅
-      - 美国住宅
+      - 美国住宅-master
+      - 美国住宅-back
+      - 亚洲住宅-master
+      - 亚洲住宅-back
     use:
       - _自建节点
       - _第三方机场
 
-  - name: "亚洲住宅"
-    type: fallback
+  # 内层 url-test: 在中转节点中选优
+  - name: "亚洲住宅-master"
+    type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    tolerance: 50
     use:
       - _亚洲住宅
+    filter: 'master'
 
-  - name: "美国住宅"
-    type: fallback
+  - name: "亚洲住宅-back"
+    type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    tolerance: 50
+    use:
+      - _亚洲住宅
+    filter: 'back'
+
+  # 内层 url-test: 在 DMIT/BWG 中转节点中选优
+  - name: "美国住宅-master"
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 50
     use:
       - _美国住宅
+    filter: 'master'
+
+  - name: "美国住宅-back"
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 50
+    use:
+      - _美国住宅
+    filter: 'back'
 
   - name: "流媒体"
     type: fallback
