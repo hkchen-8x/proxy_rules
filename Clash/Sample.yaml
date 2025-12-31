@@ -299,6 +299,9 @@ rules:
   - RULE-SET,wechat,DIRECT
   - RULE-SET,apple,DIRECT
   - RULE-SET,netflix,流媒体
+  - RULE-SET,openai,自动选择
+  - RULE-SET,bing,自动选择
+  - RULE-SET,copilot,自动选择
   - RULE-SET,telegram,自动选择
   - RULE-SET,twitter,自动选择
   - RULE-SET,discord,自动选择
