@@ -140,7 +140,7 @@ proxy-groups:
 proxy-providers:
   _第三方机场:
     type: http
-    url: "policy-path=$api/Airport"
+    url: "$api/Airport"
     interval: 300
     path: ./proxy/airport.yaml
     health-check:
