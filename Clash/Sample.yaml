@@ -140,7 +140,7 @@ proxy-groups:
 proxy-providers:
   _第三方机场:
     type: http
-    url: "https://goandrun-1252385391.cos.ap-guangzhou.myqcloud.com/proxy/Nexitally_Clash_filtered.yml?sign=q-sign-algorithm%3Dsha1%26q-ak%3DAKIDgz87uVs30lJelgPuFQCnBNN9i4DAuQjp%26q-sign-time%3D1757783407%3B1767783467%26q-key-time%3D1757783407%3B1767783467%26q-header-list%3Dhost%26q-url-param-list%3D%26q-signature%3D50a63fa315ce3bfc22b2bf80955051ee46d70f06"
+    url: "policy-path=$api/Airport"
     interval: 300
     path: ./proxy/airport.yaml
     health-check:
