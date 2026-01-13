@@ -292,6 +292,7 @@ rules:
   - DOMAIN-SUFFIX,longbridge.global,DIRECT
   - DOMAIN-SUFFIX,ibkr.com,DIRECT
   - DOMAIN-SUFFIX,bochk.com,DIRECT
+  - DOMAIN-SUFFIX,ip.ip233.cn,DIRECT
   - DOMAIN-SUFFIX,kaggle.com,第三方机场(Naixxi)美国
   - DOMAIN-SUFFIX,kaggleusercontent.com,第三方机场(Naixxi)美国
   - DOMAIN-SUFFIX,cdn.kineticbloom.org,DIRECT
