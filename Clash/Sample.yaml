@@ -12,128 +12,121 @@ dns:
 proxy-groups:
   - name: "自动选择"
     type: fallback
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     proxies:
       - 美国住宅-master
       - 美国住宅-back
-
 
   - name: "手动选择"
     type: select
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
-    proxies:
-      - 美国住宅-master
-      - 美国住宅-back
-      - 亚洲住宅-master
-      - 亚洲住宅-back
     use:
       - _自建节点
+      - _美国住宅
+      - _亚洲住宅
       - _第三方机场
 
   # 内层 url-test: 在中转节点中选优
   - name: "亚洲住宅-master"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     tolerance: 50
     use:
       - _亚洲住宅
-    filter: 'master'
+    filter: "master"
 
   - name: "亚洲住宅-back"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     tolerance: 50
     use:
       - _亚洲住宅
-    filter: 'back'
+    filter: "back"
 
   # 内层 url-test: 在 DMIT/BWG 中转节点中选优
   - name: "美国住宅-master"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     tolerance: 50
     use:
       - _美国住宅
-    filter: 'master'
+    filter: "master"
 
   - name: "美国住宅-back"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     tolerance: 50
     use:
       - _美国住宅
-    filter: 'back'
+    filter: "back"
 
   - name: "流媒体"
     type: fallback
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     proxies:
       - 第三方机场(Naixxi)新加坡
       - 第三方机场(Naixxi)日本
       - 第三方机场(Naixxi)美国
 
-
   - name: "美国自建节点"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     use:
       - _自建节点
-    filter: '美国'
-
+    filter: "美国"
 
   - name: "日本自建节点"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     use:
       - _自建节点
-    filter: '日本'
-
+    filter: "日本"
 
   - name: "第三方机场(Naixxi)"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     use:
       - _第三方机场
 
   - name: "第三方机场(Naixxi)香港"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
-    filter: '港|HK|hk|Hong Kong|HongKong|hongkong'
+    filter: "港|HK|hk|Hong Kong|HongKong|hongkong"
     use:
       - _第三方机场
 
   - name: "第三方机场(Naixxi)美国"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
-    filter: '美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
+    filter: "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
     use:
       - _第三方机场
 
   - name: "第三方机场(Naixxi)日本"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
-    filter: '日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan'
+    filter: "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
     use:
       - _第三方机场
 
   - name: "第三方机场(Naixxi)新加坡"
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
-    filter: '新加坡|坡|狮城|SG|Singapore'
+    filter: "新加坡|坡|狮城|SG|Singapore"
     use:
       - _第三方机场
 
@@ -181,7 +174,6 @@ proxy-providers:
       interval: 300
       lazy: true
       url: http://www.gstatic.com/generate_204
-
 
 rule-providers:
   local-area-network:
